@@ -1,0 +1,286 @@
+/* Body and Container Styles */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start; /* Align content to the left */
+  height: 100vh; /* Ensure the body takes up full height */
+}
+
+.container {
+  display: flex; /* Make container a flexbox */
+  flex-direction: row; /* Arrange items in a row */
+  position: relative; /* Keep container relative for positioning */
+  width: 100%; /* Full width */
+}
+
+/* Sidebar Styling */
+.sidebar {
+  width: 0; /* Start with sidebar closed */
+  position: fixed; /* Fix sidebar to the viewport */
+  top: 0;
+  left: 0; /* Align to the left */
+  height: 100%;
+  background-color: #333;
+  color: white;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  padding-top: 20px; /* Space from the top */
+  z-index: 1; /* Stack above other elements */
+  transition: width 0.5s; /* Smooth transition for expanding/collapsing */
+}
+
+/* Adjust Sidebar Link Visibility */
+.sidebar a {
+  padding: 10px 15px; /* Adds space around the links */
+  text-decoration: none; /* Removes underline */
+  color: white; /* White text for visibility */
+  display: block; /* Makes the link fill the entire row */
+  transition: background 0.3s; /* Smooth background transition on hover */
+}
+
+/* Highlight effect on hover */
+.sidebar a:hover {
+  background: rgba(255, 255, 255, 0.2); /* Light background on hover */
+}
+
+/* When Sidebar is Closed */
+.sidebar[style*="width: 0"] a {
+  opacity: 0; /* Hide links when sidebar is closed */
+}
+
+#main {
+  flex: 1;
+  padding-left: 20px;
+  transition: margin-left 0.5s ease;
+}
+
+.sidebar.active + #main {
+  margin-left: 250px; /* Only move main content when sidebar is active */
+}
+
+/* Open Button Styling */
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+  padding: 10px 15px;
+  position: fixed; /* Keep it fixed to the viewport */
+  top: 0;
+  left: 0;
+  z-index: 2; /* Place it above the sidebar */
+  user-select: none; /* Prevent text selection on the Explore button */
+}
+
+.openbtn.hidden {
+  display: none; /* Completely hide the Explore button */
+}
+
+/* Optional: If you want to visually indicate it's disabled */
+.openbtn.disabled {
+  opacity: 0.5; /* Make it semi-transparent to indicate it's disabled */
+  pointer-events: none; /* Prevent any click events */
+}
+
+
+/* Main Content */
+#main {
+  flex: 1; /* Take the remaining space */
+  padding-left: 20px; /* Optional padding for some space */
+  margin-left: 250px; /* Offset to account for the sidebar width */
+}
+
+
+/* Center the main content */
+.main-content {
+  text-align: center; /* Center the text within this container */
+  margin-top: 20px; /* Space from the top */
+}
+
+/* Style for the H2 header */
+.main-content h2 {
+  font-size: 28px; /* Larger font size for the title */
+  font-weight: bold; /* Bold font */
+  color: #333; /* Dark color for readability */
+  margin-bottom: 10px; /* Space below the header */
+}
+
+/* Style for the paragraph text */
+.main-content p {
+  font-size: 18px; /* Slightly larger font for readability */
+  color: #555; /* Softer color for paragraph text */
+  max-width: 600px; /* Limit width for readability */
+  margin: 0 auto; /* Center the paragraph */
+  line-height: 1.6; /* Add line height for easier reading */
+}
+
+
+
+.container {
+  display: flex; /* Make container a flexbox */
+  flex-direction: row; /* Arrange items in a row */
+  position: relative; /* Keep container relative for positioning */
+  width: 100%; /* Full width */
+  padding-left: 20px; /* Add padding to the left side */
+  box-sizing: border-box; /* Include padding in the container width */
+}
+
+/* Card container styles */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center; /* Center cards horizontally */
+  max-width: 1200px; /* Set the max width for the container to prevent stretching */
+  width: 100%; /* Ensure the container uses the full available width */
+  padding-left: 20px; /* Optional padding to add space to the left */
+  padding-right: 20px; /* Optional padding to add space to the right */
+  box-sizing: border-box; /* Make sure padding doesn’t affect width */
+  margin-left: auto;
+  margin-right: auto; /* Center the cards container horizontally */
+}
+
+/* Individual card styles */
+.card {
+  width: 300px; /* Fix the card width to its original size */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* Card image styling */
+.card-img {
+  width: 100%; /* Make the image fill the width of the card */
+  height: 200px; /* Set a fixed height for all images */
+  object-fit: cover; /* Ensure the image covers the area while maintaining its aspect ratio */
+  border-bottom: 2px solid #ddd; /* Optional: adds a border under the image for separation */
+}
+
+/* Card Body Styling */
+.card-body {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Card Title Styling */
+.card-title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+/* Card Info and Description Styling */
+.card-info,
+.card-description {
+  margin-bottom: 10px;
+  color: #555;
+}
+
+/* Card Button Styling */
+.card-button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+
+/* Fullscreen modal styles */
+.fullscreen-card {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0s 0.3s; /* Delay visibility change until after transition */
+}
+
+.fullscreen-card.visible {
+  opacity: 1;
+  pointer-events: all;
+  transition: opacity 0.3s ease; /* Immediate visibility change */
+}
+
+/* Fullscreen content styling */
+.fullscreen-content {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  max-width: 800px;
+  text-align: center;
+  position: relative;
+}
+
+/* Fullscreen image styling */
+.fullscreen-img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Close button styling */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 30px;
+  color: #333;
+  cursor: pointer;
+}
+
+/* Hidden class */
+.hidden {
+  display: none;
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse; /* Makes the table borders collapse together */
+}
+
+table caption {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd; /* Border for the table cells */
+}
+
+th {
+  background-color: #f4f4f4; /* Light gray background for headers */
+}
+
+td {
+  background-color: #fff; /* White background for table rows */
+}
+
+tr:nth-child(even) td {
+  background-color: #f9f9f9; /* Zebra striping for even rows */
+}
+
+tr:hover td {
+  background-color: #f1f1f1; /* Highlight row on hover */
+}
